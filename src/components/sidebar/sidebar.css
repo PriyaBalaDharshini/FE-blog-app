@@ -1,0 +1,72 @@
+.sidebar {
+    flex: 3;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin: 20px;
+    flex-direction: column;
+    background-color: rgb(249, 244, 235);
+    padding-bottom: 30px;
+}
+
+.sidebarItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebarTitle {
+    margin: 10px;
+    padding: 5px;
+    width: 80%;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+}
+
+.sidebarImg {
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+.sidebarPara {
+    text-align: center;
+    padding: 30px;
+}
+
+.sidebarList {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.sidebarListItem {
+    display: inline-block;
+    width: 50%;
+    margin-top: 15px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sidebarSocial {
+    margin-top: 15px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-brands {
+    font-size: 16px;
+    margin-left: 15px;
+    cursor: pointer;
+}
