@@ -5,7 +5,7 @@ import { Context } from '../../context/Context'
 
 function Navbar() {
     const { user, dispatch } = useContext(Context)
-    console.log(user);
+    //console.log(user);
 
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" })
