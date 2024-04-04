@@ -1,6 +1,26 @@
+import { useEffect, useState } from 'react'
 import './sidebar.css'
+import AxiosService from '../../utils/AxiosService'
+import ApiRoutes from '../../utils/ApiRoutes'
 
 function Sidebar() {
+    const [category, setCategory] = useState([])
+    //console.log(category);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await AxiosService.get(ApiRoutes.GET_ALL_CATEGORY.path);
+                //console.log(response);
+                setCategory(response.data.allCat);
+                //console.log(response.data.allCat);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className="sidebar">
             <div className="sidebarItem">
@@ -18,22 +38,28 @@ function Sidebar() {
             <div className="sidebarItem">
                 <span className="sidebarTitle">CATEGORIES</span>
                 <ul className="sidebarList">
-                    <li className="sidebarListItem">Life</li>
-                    <li className="sidebarListItem">Music</li>
-                    <li className="sidebarListItem">Food</li>
-                    <li className="sidebarListItem">Tech</li>
-                    <li className="sidebarListItem">Random</li>
-                    <li className="sidebarListItem">Sports</li>
-                    <li className="sidebarListItem">Style</li>
+                    {category.map((cat) => (<li className="sidebarListItem" key={cat._id}>
+                        {cat.name.charAt(0).toUpperCase()}{cat.name.slice(1)}
+                    </li>))}
+
+
                 </ul>
             </div>
             <div className="sidebarItem">
                 <span className="sidebarTitle">FOLLOW US</span>
                 <div className="sidebarSocial">
-                    <i className="fa-brands fa-square-facebook"></i>
-                    <i className="fa-brands fa-square-instagram"></i>
-                    <i className="fa-brands fa-square-pinterest"></i>
-                    <i className="fa-brands fa-square-twitter"></i>
+                    <a href="https://www.linkedin.com/in/priyadharshini-thirunavukkarasu-b1b615b4/" target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-square-facebook topIcon" onClick="window.location.href='https://www.linkedin.com/in/priyadharshini-thirunavukkarasu-b1b615b4/'"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/priyadharshini-thirunavukkarasu-b1b615b4/" target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-square-instagram topIcon" onClick="window.location.href='https://www.linkedin.com/in/priyadharshini-thirunavukkarasu-b1b615b4/'"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/priyadharshini-thirunavukkarasu-b1b615b4/" target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-square-pinterest topIcon" onClick="window.location.href='https://www.linkedin.com/in/priyadharshini-thirunavukkarasu-b1b615b4/'"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/priyadharshini-thirunavukkarasu-b1b615b4/" target="_blank" rel="noopener noreferrer">
+                        <i className="fa-brands fa-square-twitter topIcon" onClick="window.location.href='https://www.linkedin.com/in/priyadharshini-thirunavukkarasu-b1b615b4/'"></i>
+                    </a>
                 </div>
             </div>
         </div>

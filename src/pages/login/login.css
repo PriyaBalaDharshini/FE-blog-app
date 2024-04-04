@@ -47,6 +47,11 @@
     text-align: center;
 }
 
+.loginButton:disabled {
+    cursor: not-allowed;
+    background-color: coral;
+}
+
 .loginRegisterButton {
     margin-top: 20px;
     cursor: pointer;

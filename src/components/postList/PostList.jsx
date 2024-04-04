@@ -1,26 +1,28 @@
 import { Link } from 'react-router-dom'
 import './postList.css'
 
-function PostList() {
+function PostList({ post }) {
+    const PF = "http://localhost:8000/images/"
     return (
         <div className="postlist">
-            <Link to={"/post/:postId"}>
-                <img src="https://pics.craiyon.com/2023-07-31/ae228120a519478d8dbd92c6a546cd54.webp" alt="" className="postImg" />
-            </Link>
+            {post.photo && (<img src={PF + post.photo} alt="" className="postImg" />)}
+
             <div className="postInfo">
                 <div className="postCats">
-                    <span className="postCat">Life</span>
-                    <span className="postCat">Music</span>
+                    {post.categories.map((category, index) =>
+                    (<span key={index} className="postCat">
+                        {category.charAt(0).toUpperCase()}{category.slice(1)}
+                    </span>))}
                 </div>
-                <span className="postTitle">
-                    Lorem ipsum dolor sit amet consectetu
-                </span>
+                <Link to={`/post/${post._id}`} className='link'>
+                    <span className="postTitle">
+                        {post.title}
+                    </span>
+                </Link>
                 <hr />
-                <span className="postDate">1 hour ago</span>
+                <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
                 <p className="postDesc">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia asperiores eum illo, quos explicabo placeat necessitatibus, iste amet dolorum fuga quidem. Saepe ipsam vel, deleniti voluptates iste doloribus fugit laudantium?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia asperiores eum illo, quos explicabo placeat necessitatibus, iste amet dolorum fuga quidem. Saepe ipsam vel, deleniti voluptates iste doloribus fugit laudantium?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia asperiores eum illo, quos explicabo placeat necessitatibus, iste amet dolorum fuga quidem. Saepe ipsam vel, deleniti voluptates iste doloribus fugit laudantium?
+                    {post.title}
                 </p>
             </div>
         </div>

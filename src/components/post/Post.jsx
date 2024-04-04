@@ -1,14 +1,10 @@
 import PostList from '../postList/PostList'
 import './post.css'
 
-function Post() {
+function Post({ posts }) {
     return (
         <div className="post">
-            <PostList />
-            <PostList />
-            <PostList />
-            <PostList />
-            <PostList />
+            {posts.map((p, i) => (<PostList key={i} post={p} />))}
         </div>
     )
 }

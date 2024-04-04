@@ -1,0 +1,14 @@
+.about {
+    display: flex;
+    text-align: center;
+    line-height: 40px;
+}
+
+.aboutWrapper {
+    padding: 50px 200px;
+}
+
+.aboutTitle,
+h2 {
+    color: teal;
+}
